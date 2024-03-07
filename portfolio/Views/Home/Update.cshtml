@@ -1,0 +1,61 @@
+﻿@model portfolio.Models.submitmodel
+@{
+    ViewData["Title"] = "Contact Edit ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@if (Model == null)
+{
+    <p>No contact ID is found </p>
+
+}
+else
+{
+
+    <section class="py-5">
+        <div class="container">
+            <h2 class="display-4 text-center">Edit information</h2>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <p>Feel free to reach out to me using the form below or through the provided contact information.</p>
+                    <!-- Add your contact form here -->
+                    <form asp-controller="Home" asp-action="contactupdate" method="post">
+                        @Html.AntiForgeryToken()
+
+                        <div class="mb-3">
+                            <label for="name" class="form-label">ID</label>
+                            <input type="text" class="form-control" id="id" name="id" value="@Model.id" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Your Name</label>
+                            <input type="text" class="form-control" id="name" name="name" value="@Model.name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Your Email</label> 
+                            <input type="email" class="form-control" id="email" name="email" value="@Model.email" >
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Your Message</label>
+                            <textarea class="form-control" id="message" name="message" rows="4" >@Model.message</textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+
+                        <button  type="submit" class="btn btn-danger " asp-action="delete"
+                        asp-controller="Home">Delete</button>
+                    </form>
+                    
+
+
+                    
+                </div>
+                <div class="col-lg-6">
+                    <h4>Contact Information</h4>
+                    <p>Email: john.doe@example.com</p>
+                    <p>Phone: +1 (123)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+
+

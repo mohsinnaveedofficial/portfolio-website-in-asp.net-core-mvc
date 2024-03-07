@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="py-5">
+    <div class="container">
+        <h2 class="display-4 text-center">Contact Me</h2>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <p>Feel free to reach out to me using the form below or through the provided contact information.</p>
+                <!-- Add your contact form here -->
+                <form asp-controller="Home" asp-action="Contact" method="post">
+                    @Html.AntiForgeryToken()
+
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Your Name</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Your Email</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Your Message</label>
+                        <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" >Submit</button>
+                </form>
+            </div>
+            <div class="col-lg-6">
+                <h4>Contact Information</h4>
+                <p>Email: john.doe@example.com</p>
+                <p>Phone: +1 (123)</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+

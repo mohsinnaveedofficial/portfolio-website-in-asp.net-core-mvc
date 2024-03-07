@@ -1,0 +1,29 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+Layout="~/Views/Shared/_Layout.cshtml";
+
+<div class="container mt-5 justify-content-center align-items-center">
+<div class="text-center">
+
+
+
+<h2> Are you sure to logout </h2>
+    <div class="d-inline-flex">
+
+    
+        <form method="post" asp-controller="auth" asp-action="logutuser">
+                <button class="m-5 btn btn-primary">Yes</button>    
+
+</form>
+        <form method="post" asp-controller="auth" asp-action="nologutuser">
+            <button class="m-5 btn btn-primary">No</button>
+
+        </form>
+    </div>
+    </div>
+</div>
+
+</div>

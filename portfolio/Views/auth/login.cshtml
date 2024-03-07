@@ -1,0 +1,31 @@
+﻿@model portfolio.Models.loginmodel
+Layout = "~/Views/Shared/_Layout.cshtml";
+
+<section class="py-5">
+    <div class="container">
+        <h2 class="display-4 text-center">Register</h2>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <!-- <p>Feel free to reach out to me using the form below or through the provided contact information.</p>-->
+                <!-- Add your contact form here -->
+                <form asp-controller="auth" asp-action="login" method="post">
+                    @Html.AntiForgeryToken()
+
+                    <div class="mb-3">
+                        <label for="Email" class="form-label">Your Email</label>
+                        <input type="email" class="form-control" id="email" name="email" asp-for="Email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Your Password</label>
+                        <input type="password" class="form-control" id="password" name="password" asp-for="Password" required>
+                    </div>
+                   
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+</section>

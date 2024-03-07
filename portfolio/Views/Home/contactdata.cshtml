@@ -1,0 +1,39 @@
+﻿@model List<portfolio.Models.submitmodel>
+
+@{
+    ViewData["Title"] = "Contact Data";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Contact Form Submissions</h2>
+
+
+  
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Message</th>
+            <th>Submission Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var submission in Model)
+        {
+            <tr>
+                <td>@submission.id</td>
+                <td>@submission.name</td>
+                <td>@submission.email</td>
+                <td>@submission.message</td>
+                <td>@submission.submissiondate.ToString("dd-MM-yyyy HH:mm:ss")</td>
+                <td>
+                    <a class="btn btn-primary" asp-controller="Home" asp-action="Update" asp-route-id="@submission.id" >Edit</a>
+    
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
