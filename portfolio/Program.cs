@@ -46,7 +46,7 @@ namespace portfolio
             builder.Services.AddDbContext<authDbContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("IdentityConnection")));
             builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<authDbContext>();
-            builder.Services.AddAuthorization(options =>
+           
             {
                 options.AddPolicy("Adminpolicy", policy => policy.RequireRole("Admin"));
             });
